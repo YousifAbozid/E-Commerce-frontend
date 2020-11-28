@@ -1,11 +1,18 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Row, Col, Image, ListGroup, Card, Button, ListGroupItem } from 'react-bootstrap'
 import Rating from '../components/Rating'
-import products from '../products'
+import { getProduct } from '../api'
 
 const ProductScreen = ({ match }) => {
-    const product = products.find((p) => p._id === match.params.id)
+    const id = match.params.id
+    const [product, setProduct] = useState({})
+
+    useEffect(() => {
+        getProduct(id)
+            .then((response) => setProduct(response.data))
+            .catch((error) => console.log(error))
+    }, [id])
 
     return (
         <>
