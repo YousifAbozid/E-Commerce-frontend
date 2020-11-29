@@ -1,13 +1,14 @@
-import React, { useEffect } from 'react'
+import React, { useEffect,useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { Row, Col, Image, ListGroup, Card, Button, ListGroupItem } from 'react-bootstrap'
+import { Row, Col, Image, ListGroup, Card, Button, ListGroupItem, Form } from 'react-bootstrap'
 import productDetails from '../actions/productDetails' // this is action creator
 import Rating from '../components/Rating'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 
 const ProductScreen = ({ match }) => {
+    const [qty, setQty] = useState(0)
     const id = match.params.id
     const dispatch = useDispatch()
     const productDetail = useSelector(state => state.productDetails)
@@ -65,6 +66,23 @@ const ProductScreen = ({ match }) => {
                                     </Col>
                                 </Row>
                             </ListGroupItem>
+                            {product.countInStock > 0 && 
+                            <ListGroupItem>
+                                <Row>
+                                    <Col>Qty</Col>
+                                    <Col>
+                                        <Form.Control
+                                            as="select"
+                                            value={qty}
+                                            onChange={({ target }) => setQty(target.value)}
+                                        >
+                                            {[...Array(product.countInStock).keys()].map((x) => (
+                                                <option key={x + 1} value={x + 1}>{x + 1}</option>
+                                            ))}
+                                        </Form.Control>
+                                    </Col>
+                                </Row>
+                            </ListGroupItem>}
                             <ListGroupItem>
                                 <Button
                                     type="button"
