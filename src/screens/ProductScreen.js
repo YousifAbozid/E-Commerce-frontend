@@ -7,7 +7,7 @@ import Rating from '../components/Rating'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 
-const ProductScreen = ({ match }) => {
+const ProductScreen = ({ history, match }) => {
     const [qty, setQty] = useState(0)
     const id = match.params.id
     const dispatch = useDispatch()
@@ -17,6 +17,10 @@ const ProductScreen = ({ match }) => {
     useEffect(() => {
         dispatch(productDetails(id))
     }, [dispatch, id])
+
+    const handleSubmit = () => {
+        history.push(`/cart/${id}/?qty=${qty}`)
+    }
 
     return (
         <>
@@ -85,6 +89,7 @@ const ProductScreen = ({ match }) => {
                             </ListGroupItem>}
                             <ListGroupItem>
                                 <Button
+                                    onClick={handleSubmit}
                                     type="button"
                                     className="btn-block"
                                     disabled={product.countInStock === 0}
