@@ -2,7 +2,7 @@ import * as types from '../constants/actionTypes'
 import * as api from '../api'
 
 // action creator for products list
-export const productsList = () => async (dispatch) => {
+const productsList = () => async (dispatch) => {
     try {
         // frist dispatch this to set loading to true
         dispatch({ type: types.PRODUCT_LIST_REQUEST })
@@ -24,3 +24,5 @@ export const productsList = () => async (dispatch) => {
         })
     }
 }
+
+export default productsList
