@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Row, Col } from 'react-bootstrap'
+import productsList from '../actions/productList' // this is action creator
 import Product from '../components/Product'
-import productsList from '../actions/productList'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
 

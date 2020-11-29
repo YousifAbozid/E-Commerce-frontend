@@ -1,25 +1,32 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Row, Col, Image, ListGroup, Card, Button, ListGroupItem } from 'react-bootstrap'
+import productDetails from '../actions/productDetails' // this is action creator
 import Rating from '../components/Rating'
-import { getProduct } from '../api'
+import Message from '../components/Message'
+import Loader from '../components/Loader'
 
 const ProductScreen = ({ match }) => {
     const id = match.params.id
-    const [product, setProduct] = useState({})
+    const dispatch = useDispatch()
+    const productDetail = useSelector(state => state.productDetails)
+    const { product, loading, error } = productDetail
 
     useEffect(() => {
-        getProduct(id)
-            .then((response) => setProduct(response.data))
-            .catch((error) => console.log(error))
-    }, [id])
+        dispatch(productDetails(id))
+    }, [dispatch, id])
 
     return (
         <>
             <Link to="/" className="btn btn-light my-3">
                 Go Back
             </Link>
-            <Row>
+            {loading
+            ? <Loader />
+            : error[0]
+            ? <Message variant="danger" children="Product Not Found" />
+            : <Row>
                 <Col md={6}>
                     <Image fluid src={product.image} alt={product.name} />
                 </Col>
@@ -70,7 +77,7 @@ const ProductScreen = ({ match }) => {
                         </ListGroup>
                     </Card>
                 </Col>
-            </Row>
+            </Row>}
         </>
     )
 }
