@@ -3,7 +3,7 @@ import * as types from '../constants/actionTypes'
 const initialState = {
     products: [],
     loading: false,
-    errors: []
+    error: []
 }
 
 export const productListReducer = (state = initialState, action) => {
@@ -11,9 +11,9 @@ export const productListReducer = (state = initialState, action) => {
         case types.PRODUCT_LIST_REQUEST:
             return { ...state, loading: true }
         case types.PRODUCT_LIST_SUCCESS:
-            return { ...state, loading: false, products: action.payload }
+            return { loading: false, products: action.payload, error: [] }
         case types.PRODUCT_LIST_FAILURE:
-            return { ...state, loading: false, errors: state.errors.concat(action.payload) }
+            return { ...state, loading: false, error: [action.payload] }
         default:
             return state
     }
