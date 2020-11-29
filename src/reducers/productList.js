@@ -6,7 +6,7 @@ const initialState = {
     error: []
 }
 
-export const productListReducer = (state = initialState, action) => {
+const productListReducer = (state = initialState, action) => {
     switch (action.type) {
         case types.PRODUCT_LIST_REQUEST:
             return { ...state, loading: true }
@@ -18,3 +18,5 @@ export const productListReducer = (state = initialState, action) => {
             return state
     }
 }
+
+export default productListReducer
