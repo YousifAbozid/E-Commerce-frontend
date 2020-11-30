@@ -2,7 +2,7 @@ import * as types from '../constants/actionTypes'
 import * as api from '../api'
 
 // action creator for user login
-const login = (email, password) => async (dispatch) => {
+export const login = (email, password) => async (dispatch) => {
     try {
         // frist dispatch this to set loading to true
         dispatch({ type: types.USER_lOGIN_REQUEST })
@@ -29,4 +29,8 @@ const login = (email, password) => async (dispatch) => {
     }
 }
 
-export default login
+// action creator for user logout
+export const logout = () => (dispatch) => {
+    localStorage.removeItem('userInfo')
+    dispatch({ type: types.USER_LOGOUT })
+}
