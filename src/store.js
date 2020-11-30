@@ -22,7 +22,7 @@ const cartItemsFromStorage = localStorage.getItem('cartItems')
 // get the user info from the localStorage
 const userInfoFromStorage = localStorage.getItem('userInfo')
 ? JSON.parse(localStorage.getItem('userInfo'))
-: {}
+: null
 
 // set the initial state with the data stored in localStorage
 const initialState = {

@@ -22,7 +22,9 @@ const login = (email, password) => async (dispatch) => {
         // if there is an error dispatch this to add the error to the state
         dispatch({
             type: types.USER_LOGIN_FAILURE,
-            payload: error.message
+            payload: error.response && error.response.data.error
+            ? error.response.data.error
+            : error.message
         })
     }
 }
