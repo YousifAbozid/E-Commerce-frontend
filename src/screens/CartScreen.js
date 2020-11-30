@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Row, Col, Image, ListGroup, Card, Button, Form, ListGroupItem } from 'react-bootstrap'
 import addToCart from '../actions/addToCart' // this is action creator
+import removeFromCart from '../actions/removeFromCart' // this is action creator
 import Message from '../components/Message'
 
 const CartScreen = ({ match, location, history }) => {
@@ -19,7 +20,7 @@ const CartScreen = ({ match, location, history }) => {
     }, [dispatch, productId, qty])
 
     const handleRemoveFromCart = (id) => {
-
+        dispatch(removeFromCart(id))
     }
 
     const handleCheckout = () => {
@@ -60,7 +61,7 @@ const CartScreen = ({ match, location, history }) => {
                                     <Button
                                         type='button'
                                         variant='light'
-                                        onClick={handleRemoveFromCart(item.product)}
+                                        onClick={() => handleRemoveFromCart(item.product)}
                                     >
                                         <i className='fas fa-trash'></i>
                                     </Button>

@@ -27,6 +27,12 @@ const cartReducer = (state = initialState, action) => {
                     cartItems: [...state.cartItems, item]
                 }
             }
+        case types.CART_REMOVE_ITEM:
+            // return every item in the list except the one we want to remove
+            return {
+                ...state,
+                cartItems: state.cartItems.filter(item => item.product !== action.payload)
+            }
         default:
             return state
     }
