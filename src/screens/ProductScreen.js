@@ -1,4 +1,4 @@
-import React, { useEffect,useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Row, Col, Image, ListGroup, Card, Button, ListGroupItem, Form } from 'react-bootstrap'
@@ -8,7 +8,7 @@ import Message from '../components/Message'
 import Loader from '../components/Loader'
 
 const ProductScreen = ({ history, match }) => {
-    const [qty, setQty] = useState(0)
+    const [qty, setQty] = useState(1)
     const id = match.params.id
     const dispatch = useDispatch()
     const productDetail = useSelector(state => state.productDetails)

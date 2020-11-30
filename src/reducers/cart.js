@@ -15,9 +15,7 @@ const cartReducer = (state = initialState, action) => {
 
             // if the item exist in the state
             if (itemExist) {
-                // then map throw cartItems in the state and return non duplicate items
-                // I guess simple we can return the state without any mapping because we are not adding anything new
-                // but I'm gonna test this first to see what's going on here.
+                // then map throw cartItems in the state and update it maybe the qty has changed
                 return {
                     ...state,
                     cartItems: state.cartItems.map(i => i.product === itemExist.product ? item : i)
