@@ -1,6 +1,19 @@
 import axios from 'axios'
 
-const url = 'http://localhost:5000/api/products'
+// all requests that related to the products
+const urlForProducts = 'http://localhost:5000/api/products'
 
-export const getProducts = () => axios.get(url)
-export const getProduct = (id) => axios.get(`${url}/${id}`)
+export const getProducts = () => axios.get(urlForProducts)
+export const getProduct = (id) => axios.get(`${urlForProducts}/${id}`)
+
+// all requests that related to the user
+const urlForLogin = 'http://localhost:5000/api/users/login'
+
+// the config which is have a token and etc.
+const config = {
+    headers: {
+        'Content-Type': 'application/json'
+    }
+}
+
+export const userLogin = (email, password) => axios.post(urlForLogin, { email, password }, config)

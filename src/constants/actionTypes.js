@@ -11,3 +11,9 @@ export const PRODUCT_DETAILS_FAILURE = 'PRODUCT_DETAILS_FAILURE'
 // types for cart
 export const CART_ADD_ITEM = 'CART_ADD_ITEM'
 export const CART_REMOVE_ITEM = 'CART_REMOVE_ITEM'
+
+// types for user login and logout
+export const USER_lOGIN_REQUEST = 'USER_lOGIN_REQUEST'
+export const USER_LOGIN_SUCCESS = 'USER_LOGIN_SUCCESS'
+export const USER_LOGIN_FAILURE = 'USER_LOGIN_FAILURE'
+export const USER_LOGOUT = 'USER_LOGOUT'

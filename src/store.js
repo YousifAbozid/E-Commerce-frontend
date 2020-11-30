@@ -4,21 +4,33 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import productListReducer from './reducers/productList'
 import productDetailsReducer from './reducers/productDetails'
 import cartReducer from './reducers/cart'
+import userLoginReducer from './reducers/user'
 
+// create a root reducer
 const rootReducer = combineReducers({
     productList: productListReducer,
     productDetails: productDetailsReducer,
-    cart: cartReducer
+    cart: cartReducer,
+    userLogin: userLoginReducer
 })
 
+// get the cart items from the localStorage
 const cartItemsFromStorage = localStorage.getItem('cartItems')
 ? JSON.parse(localStorage.getItem('cartItems'))
 : []
 
+// get the user info from the localStorage
+const userInfoFromStorage = localStorage.getItem('userInfo')
+? JSON.parse(localStorage.getItem('userInfo'))
+: {}
+
+// set the initial state with the data stored in localStorage
 const initialState = {
-    cart: { cartItems: cartItemsFromStorage }
+    cart: { cartItems: cartItemsFromStorage },
+    userLogin: { userInfo: userInfoFromStorage }
 }
 
+// create a store to save the state
 const store = createStore(
     rootReducer,
     initialState,
