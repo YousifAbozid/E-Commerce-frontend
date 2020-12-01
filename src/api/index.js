@@ -8,6 +8,7 @@ export const getProduct = (id) => axios.get(`${urlForProducts}/${id}`)
 
 // all requests that related to the user
 const urlForLogin = 'http://localhost:5000/api/users/login'
+const urlForRegister = 'http://localhost:5000/api/users'
 
 // the config which is have a token and etc.
 const config = {
@@ -17,3 +18,4 @@ const config = {
 }
 
 export const userLogin = (email, password) => axios.post(urlForLogin, { email, password }, config)
+export const userRegister = (name, email, password) => axios.post(urlForRegister, { name, email, password }, config)

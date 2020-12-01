@@ -4,14 +4,16 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import productListReducer from './reducers/productList'
 import productDetailsReducer from './reducers/productDetails'
 import cartReducer from './reducers/cart'
-import userLoginReducer from './reducers/user'
+import userLoginReducer from './reducers/userLogin'
+import userRegisterReducer from './reducers/userRegister'
 
 // create a root reducer
 const rootReducer = combineReducers({
     productList: productListReducer,
     productDetails: productDetailsReducer,
     cart: cartReducer,
-    userLogin: userLoginReducer
+    userLogin: userLoginReducer,
+    userRegister: userRegisterReducer
 })
 
 // get the cart items from the localStorage
