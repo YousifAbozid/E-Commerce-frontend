@@ -1,20 +1,19 @@
-import { useSelector } from 'react-redux'
 import * as types from '../constants/actionTypes'
 import * as api from '../api'
 
-// action creator for user register
-const getUserDetails = () => async (dispatch) => {
+// action creator for user details
+const getUserDetails = () => async (dispatch, getState) => {
     try {
         // frist dispatch this to set loading to true
         dispatch({ type: types.USER_DETAILS_REQUEST })
 
         // get the token from logged in user
-        let { token } = useSelector(state => state.userLogin.userInfo)
+        let { userLogin: { userInfo } } = getState()
 
         // this config which is have a token.
         const configWithToken = {
             headers: {
-                Authorization: `bearer ${token}`,
+                Authorization: `bearer ${userInfo.token}`,
                 'Content-Type': 'application/json'
             }
         }
@@ -27,15 +26,6 @@ const getUserDetails = () => async (dispatch) => {
             type: types.USER_DETAILS_SUCCESS,
             payload: data
         })
-
-        // also save the data to the state as logged in user
-        dispatch({
-            type: types.USER_LOGIN_SUCCESS,
-            payload: data
-        })
-
-        // then save the user data in the localStorage
-        localStorage.setItem('userInfo', JSON.stringify(data))
     } catch (error) {
         // if there is an error dispatch this to add the error to the state
         dispatch({
