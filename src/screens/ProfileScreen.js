@@ -4,6 +4,7 @@ import { Col, Row, Button, Form, FormGroup, FormControl, FormLabel } from 'react
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 import getUserDetails from '../actions/userDetails'
+import userUpdateProfile from '../actions/userUpdateProfile'
 
 const ProfileScreen = ({ history }) => {
     const dispatch = useDispatch()
@@ -11,6 +12,8 @@ const ProfileScreen = ({ history }) => {
     const { loading, error, user } = userDetails
     const userLogin = useSelector(state => state.userLogin)
     const { userInfo } = userLogin
+    const userUpdateProfileState = useSelector(state => state.userUpdateProfile)
+    const { success } = userUpdateProfileState
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -39,8 +42,8 @@ const ProfileScreen = ({ history }) => {
         if (password !== confirmPassword) {
             setMessage('Passwords doesn\'t match')
         } else {
-            // if passwords match then dispatch this to send request to the backend to register new user
-            // dispatch update profile
+            // if passwords match then dispatch this to send request to the backend to update user data
+            dispatch(userUpdateProfile({ id: user._id, name, email, password }))
         }
     }
 
@@ -50,7 +53,9 @@ const ProfileScreen = ({ history }) => {
                 <h2>User Profile</h2>
                 {loading && <Loader />}
                 {message && <Message variant='danger' children={message} />}
+                {success && <Message variant='success' children={'Profile Updated Successfully'} />}
                 {error[0] && <Message variant='danger' children={error} />}
+                {userUpdateProfileState.error[0] && <Message variant='danger' children={userUpdateProfileState.error} />}
                 <Form onSubmit={handleSubmit}>
                     <FormGroup controlId='name'>
                         <FormLabel>Name</FormLabel>

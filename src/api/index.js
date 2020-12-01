@@ -21,3 +21,4 @@ const config = {
 export const userLogin = (email, password) => axios.post(urlForLogin, { email, password }, config)
 export const userRegister = (name, email, password) => axios.post(urlForRegister, { name, email, password }, config)
 export const getUserDetails = (configWithToken) => axios.get(urlForUserDetails, configWithToken)
+export const updateUserDetails = ( user, configWithToken) => axios.put(urlForUserDetails, user, configWithToken)
