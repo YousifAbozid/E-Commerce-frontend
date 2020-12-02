@@ -2,7 +2,8 @@ import * as types from '../constants/actionTypes'
 
 const initialState = {
     cartItems: [],
-    shippingAddress: {}
+    shippingAddress: {},
+    paymentMethod: ''
 }
 
 const cartReducer = (state = initialState, action) => {
@@ -39,6 +40,12 @@ const cartReducer = (state = initialState, action) => {
             return {
                 ...state,
                 shippingAddress: action.payload
+            }
+        case types.CART_SAVE_PAYMENT_METHOD:
+            // save the payment method in the state
+            return {
+                ...state,
+                paymentMethod: action.payload
             }
         default:
             return state

@@ -8,7 +8,7 @@ const saveShippingAddress = (data) => async (dispatch) => {
         payload: data
     })
 
-    // after dispatchto the shipping address to the localStorage in the browser
+    // after dispatch to the shipping address to the localStorage in the browser
     localStorage.setItem('shippingAddress', JSON.stringify(data))
 }
 
