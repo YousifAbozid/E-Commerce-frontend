@@ -20,5 +20,10 @@ const config = {
 
 export const userLogin = (email, password) => axios.post(urlForLogin, { email, password }, config)
 export const userRegister = (name, email, password) => axios.post(urlForRegister, { name, email, password }, config)
-export const getUserDetails = (configWithToken) => axios.get(urlForUserDetails, configWithToken)
-export const updateUserDetails = ( user, configWithToken) => axios.put(urlForUserDetails, user, configWithToken)
+export const getUserDetails = (configWithToken) => axios.get(urlForUserDetails, configWithToken, config)
+export const updateUserDetails = ( user, configWithToken) => axios.put(urlForUserDetails, user, configWithToken, config)
+
+// all requests that related to the order
+const urlForOrder = 'http://localhost:5000/api/orders'
+
+export const createOrder = (order, configWithToken) => axios.post(urlForOrder, order, configWithToken)

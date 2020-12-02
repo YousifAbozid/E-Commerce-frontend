@@ -1,17 +1,29 @@
-import React, { useState } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Button, Row, Col, ListGroup, Image, Card, ListGroupItem } from 'react-bootstrap'
 import Message from '../components/Message'
 import CheckoutSteps from '../components/CheckoutSteps'
 import { Link } from 'react-router-dom'
+import createOrder from '../actions/createOrder'
 
-const PlaceOrderScreen = () => {
+const PlaceOrderScreen = ({ history }) => {
+    const dispatch = useDispatch()
     const cart = useSelector(state => state.cart)
     const {
         shippingAddress: { address, city, postalCode, country },
+        shippingAddress,
         paymentMethod,
         cartItems
     } = cart
+    const orderCreate = useSelector(state => state.orderCreate)
+    const { order, error, success } = orderCreate
+
+    useEffect(() => {
+        if (success) {
+            history.push(`/order/${order._id}`)
+        }
+        // eslint-disable-next-line
+    }, [history, success])
 
     // add decimals if is not there
     const addDecimals = (num) => {
@@ -31,7 +43,16 @@ const PlaceOrderScreen = () => {
     const totalPrice = (Number(itemsPrice) + Number(shippingPrice) + Number(taxPrice)).toFixed(2)
 
     const handlePlaceOrder = () => {
-
+        console.log(cartItems)
+        dispatch(createOrder({
+            shippingAddress,
+            paymentMethod,
+            cartItems,
+            itemsPrice,
+            shippingPrice,
+            taxPrice,
+            totalPrice
+        }))
     }
 
     return (
@@ -110,6 +131,9 @@ const PlaceOrderScreen = () => {
                                     <Col>${totalPrice}</Col>
                                 </Row>
                             </ListGroupItem>
+                            {error[0] && <ListGroupItem>
+                                <Message variant='danger'>{error}</Message>
+                            </ListGroupItem>}
                             <ListGroupItem>
                                 <Button
                                     type='button'
