@@ -11,6 +11,7 @@ export const PRODUCT_DETAILS_FAILURE = 'PRODUCT_DETAILS_FAILURE'
 // types for cart
 export const CART_ADD_ITEM = 'CART_ADD_ITEM'
 export const CART_REMOVE_ITEM = 'CART_REMOVE_ITEM'
+export const CART_SAVE_SHIPPING_ADDRESS = 'CART_SAVE_SHIPPING_ADDRESS'
 
 // types for user login and logout
 export const USER_lOGIN_REQUEST = 'USER_lOGIN_REQUEST'
