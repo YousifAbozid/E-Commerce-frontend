@@ -10,6 +10,7 @@ import userDetailsReducer from "./reducers/userDetails"
 import userUpdateProfileReducer from "./reducers/userUpdateProfile"
 import orderCreateReducer from "./reducers/orderCreate"
 import orderDetailsReducer from "./reducers/orderDetails"
+import orderPayReducer from "./reducers/orderPay"
 
 // create a root reducer
 const rootReducer = combineReducers({
@@ -22,6 +23,7 @@ const rootReducer = combineReducers({
     userUpdateProfile: userUpdateProfileReducer,
     orderCreate: orderCreateReducer,
     orderDetails: orderDetailsReducer,
+    orderPay: orderPayReducer
 })
 
 // get the cart items from the localStorage

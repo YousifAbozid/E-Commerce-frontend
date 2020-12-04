@@ -28,3 +28,4 @@ const urlForOrder = 'http://localhost:5000/api/orders'
 
 export const createOrder = (order, configWithToken) => axios.post(urlForOrder, order, configWithToken)
 export const getOrderById = (id, configWithToken) => axios.get(`${urlForOrder}/${id}`, configWithToken)
+export const updateOrderToPay = (orderId, paymentResult, configWithToken) => axios.put(`${urlForOrder}/${orderId}/pay`, paymentResult, configWithToken)
