@@ -2,7 +2,7 @@ import * as types from '../constants/actionTypes'
 import * as api from '../api'
 
 // action creator to get order details
-const createOrder = (id) => async (dispatch, getState) => {
+const getOrderDetails = (id) => async (dispatch, getState) => {
     try {
         // frist dispatch this to set loading to true
         dispatch({ type: types.ORDER_DETAILS_REQUEST })
@@ -36,4 +36,4 @@ const createOrder = (id) => async (dispatch, getState) => {
     }
 }
 
-export default createOrder
+export default getOrderDetails

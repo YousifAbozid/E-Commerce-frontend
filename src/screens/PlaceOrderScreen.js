@@ -43,7 +43,6 @@ const PlaceOrderScreen = ({ history }) => {
     const totalPrice = (Number(itemsPrice) + Number(shippingPrice) + Number(taxPrice)).toFixed(2)
 
     const handlePlaceOrder = () => {
-        console.log(cartItems)
         dispatch(createOrder({
             shippingAddress,
             paymentMethod,
