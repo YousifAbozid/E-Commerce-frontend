@@ -1,14 +1,15 @@
-import { createStore, applyMiddleware, combineReducers } from 'redux'
-import thunk from 'redux-thunk'
-import { composeWithDevTools } from 'redux-devtools-extension'
-import productListReducer from './reducers/productList'
-import productDetailsReducer from './reducers/productDetails'
-import cartReducer from './reducers/cart'
-import userLoginReducer from './reducers/userLogin'
-import userRegisterReducer from './reducers/userRegister'
-import userDetailsReducer from './reducers/userDetails'
-import userUpdateProfileReducer from './reducers/userUpdateProfile'
-import orderReducer from './reducers/order'
+import { createStore, applyMiddleware, combineReducers } from "redux"
+import thunk from "redux-thunk"
+import { composeWithDevTools } from "redux-devtools-extension"
+import productListReducer from "./reducers/productList"
+import productDetailsReducer from "./reducers/productDetails"
+import cartReducer from "./reducers/cart"
+import userLoginReducer from "./reducers/userLogin"
+import userRegisterReducer from "./reducers/userRegister"
+import userDetailsReducer from "./reducers/userDetails"
+import userUpdateProfileReducer from "./reducers/userUpdateProfile"
+import orderCreateReducer from "./reducers/orderCreate"
+import orderDetailsReducer from "./reducers/orderDetails"
 
 // create a root reducer
 const rootReducer = combineReducers({
@@ -19,37 +20,38 @@ const rootReducer = combineReducers({
     userRegister: userRegisterReducer,
     userDetails: userDetailsReducer,
     userUpdateProfile: userUpdateProfileReducer,
-    orderCreate: orderReducer
+    orderCreate: orderCreateReducer,
+    orderDetails: orderDetailsReducer,
 })
 
 // get the cart items from the localStorage
-const cartItemsFromStorage = localStorage.getItem('cartItems')
-? JSON.parse(localStorage.getItem('cartItems'))
-: []
+const cartItemsFromStorage = localStorage.getItem("cartItems")
+    ? JSON.parse(localStorage.getItem("cartItems"))
+    : []
 
 // get the user info from the localStorage
-const userInfoFromStorage = localStorage.getItem('userInfo')
-? JSON.parse(localStorage.getItem('userInfo'))
-: null
+const userInfoFromStorage = localStorage.getItem("userInfo")
+    ? JSON.parse(localStorage.getItem("userInfo"))
+    : null
 
 // get the shipping address from the localStorage
-const shippingAddressFromStorage = localStorage.getItem('shippingAddress')
-? JSON.parse(localStorage.getItem('shippingAddress'))
-: {}
+const shippingAddressFromStorage = localStorage.getItem("shippingAddress")
+    ? JSON.parse(localStorage.getItem("shippingAddress"))
+    : {}
 
 // get the payment method from the localStorage
-const paymentMethodFromStorage = localStorage.getItem('paymentMethod')
-? JSON.parse(localStorage.getItem('paymentMethod'))
-: ''
+const paymentMethodFromStorage = localStorage.getItem("paymentMethod")
+    ? JSON.parse(localStorage.getItem("paymentMethod"))
+    : ""
 
 // set the initial state with the data stored in localStorage
 const initialState = {
     cart: {
         cartItems: cartItemsFromStorage,
         shippingAddress: shippingAddressFromStorage,
-        paymentMethod: paymentMethodFromStorage
+        paymentMethod: paymentMethodFromStorage,
     },
-    userLogin: { userInfo: userInfoFromStorage }
+    userLogin: { userInfo: userInfoFromStorage },
 }
 
 // create a store to save the state
