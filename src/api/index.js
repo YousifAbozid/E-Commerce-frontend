@@ -29,3 +29,8 @@ const urlForOrder = 'http://localhost:5000/api/orders'
 export const createOrder = (order, configWithToken) => axios.post(urlForOrder, order, configWithToken)
 export const getOrderById = (id, configWithToken) => axios.get(`${urlForOrder}/${id}`, configWithToken)
 export const updateOrderToPay = (orderId, paymentResult, configWithToken) => axios.put(`${urlForOrder}/${orderId}/pay`, paymentResult, configWithToken)
+
+// all requests that related to paypal
+const urlForPaypalClientId = 'http://localhost:5000/api/config/paypal'
+
+export const getClientId = () => axios.get(urlForPaypalClientId)
