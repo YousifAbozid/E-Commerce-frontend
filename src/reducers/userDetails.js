@@ -14,6 +14,8 @@ const userDetailsReducer = (state = initialState, action) => {
             return { ...state, loading: false, user: action.payload, error: [] }
         case types.USER_DETAILS_FAILURE:
             return { ...state, loading: false, error: action.payload }
+        case types.USER_DETAILS_RESET:
+            return state
         default:
             return state
     }

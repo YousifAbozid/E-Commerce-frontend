@@ -19,6 +19,8 @@ const orderListMyReducer = (state = initialState, action) => {
             }
         case types.ORDER_LIST_MY_FAILURE:
             return { ...state, loading: false, error: action.payload }
+        case types.ORDER_LIST_MY_RESET:
+            return state
         default:
             return state
     }

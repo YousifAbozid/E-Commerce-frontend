@@ -32,5 +32,13 @@ export const login = (email, password) => async (dispatch) => {
 // action creator for user logout
 export const logout = () => (dispatch) => {
     localStorage.removeItem('userInfo')
+    localStorage.removeItem('cartItems')
+    localStorage.removeItem('shippingAddress')
+    localStorage.removeItem('__paypal_storage__')
     dispatch({ type: types.USER_LOGOUT })
+    dispatch({ type: types.ORDER_LIST_MY_RESET })
+    dispatch({ type: types.USER_REGISTER_RESET })
+    dispatch({ type: types.USER_UPDATE_PROFILE_RESET })
+    dispatch({ type: types.USER_DETAILS_RESET })
+    dispatch({ type: types.CART_RESET })
 }

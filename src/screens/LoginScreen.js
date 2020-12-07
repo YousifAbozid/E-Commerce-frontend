@@ -34,7 +34,7 @@ const LoginScreen = ({ location, history }) => {
         <FormContainer>
             <h1>Log In</h1>
             {loading && <Loader />}
-            {error ? <Message variant='danger'>{error}</Message> : null}
+            {error[0] ? <Message variant='danger'>{error}</Message> : null}
             <Form onSubmit={handleSubmit}>
                 <FormGroup controlId='email'>
                     <FormLabel>Email Address</FormLabel>

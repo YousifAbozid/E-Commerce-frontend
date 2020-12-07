@@ -14,6 +14,8 @@ const userRegisterReducer = (state = initialState, action) => {
             return { ...state, loading: false, userInfo: action.payload, error: [] }
         case types.USER_REGISTER_FAILURE:
             return { ...state, loading: false, error: action.payload }
+        case types.USER_REGISTER_RESET:
+            return state
         default:
             return state
     }

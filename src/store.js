@@ -55,7 +55,10 @@ const initialState = {
         shippingAddress: shippingAddressFromStorage,
         paymentMethod: paymentMethodFromStorage,
     },
-    userLogin: { userInfo: userInfoFromStorage },
+    userLogin: {
+        userInfo: userInfoFromStorage,
+        error: []
+    },
 }
 
 // create a store to save the state
