@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Button, Form, FormGroup, FormControl, FormLabel } from 'react-bootstrap'
 import FormContainer from '../components/FormContainer'
 import CheckoutSteps from '../components/CheckoutSteps'
-import saveShippingAddress from '../actions/saveShippingAddress'
+import saveShippingAddress from '../actions/order/saveShippingAddress'
 
 const ShippingScreen = ({ history }) => {
     const dispatch = useDispatch()

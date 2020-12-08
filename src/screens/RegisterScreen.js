@@ -5,7 +5,7 @@ import { Col, Row, Button, Form, FormGroup, FormControl, FormLabel } from 'react
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 import FormContainer from '../components/FormContainer'
-import register from '../actions/userRegister'
+import register from '../actions/user/userRegister'
 
 const RegisterScreen = ({ location, history }) => {
     const dispatch = useDispatch()

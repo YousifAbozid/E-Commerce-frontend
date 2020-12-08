@@ -1,11 +1,11 @@
-import * as types from '../constants/actionTypes'
-import * as api from '../api'
+import * as types from '../../constants/actionTypes'
+import * as api from '../../api'
 
-// action creator for list-my order
-const listMyOrders = () => async (dispatch, getState) => {
+// action creator for order payment
+const orderPay = (orderId, paymentResult) => async (dispatch, getState) => {
     try {
         // frist dispatch this to set loading to true
-        dispatch({ type: types.ORDER_LIST_MY_REQUEST })
+        dispatch({ type: types.ORDER_PAY_REQUEST })
 
         // get the token from logged in user
         let { userLogin: { userInfo } } = getState()
@@ -13,16 +13,17 @@ const listMyOrders = () => async (dispatch, getState) => {
         // this config which is have a token.
         const configWithToken = {
             headers: {
-                Authorization: `bearer ${userInfo.token}`
+                Authorization: `bearer ${userInfo.token}`,
+                'Content-Type': 'application/json'
             }
         }
 
-        // then send request to get the orders list-my
-        const { data } = await api.getOrderListMy(configWithToken)
+        // then send request to get an order
+        const { data } = await api.updateOrderToPay(orderId, paymentResult, configWithToken)
 
         // then dispatch this to save the data to the state
         dispatch({
-            type: types.ORDER_LIST_MY_SUCCESS,
+            type: types.ORDER_PAY_SUCCESS,
             payload: data
         })
     } catch (error) {
@@ -36,4 +37,4 @@ const listMyOrders = () => async (dispatch, getState) => {
     }
 }
 
-export default listMyOrders
+export default orderPay

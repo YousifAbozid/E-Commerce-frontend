@@ -1,5 +1,5 @@
-import * as types from '../constants/actionTypes'
-import * as api from '../api'
+import * as types from '../../constants/actionTypes'
+import * as api from '../../api'
 
 // action creator for user register
 const register = (name, email, password) => async (dispatch) => {

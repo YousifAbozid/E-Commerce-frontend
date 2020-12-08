@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Col, Row, Button, Form, FormGroup, FormControl, FormLabel, Table } from 'react-bootstrap'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
-import getUserDetails from '../actions/userDetails'
-import userUpdateProfile from '../actions/userUpdateProfile'
-import listMyOrders from '../actions/ListMyOrders'
+import getUserDetails from '../actions/user/userDetails'
+import userUpdateProfile from '../actions/user/userUpdateProfile'
+import listMyOrders from '../actions/order/ListMyOrders'
 import { LinkContainer } from 'react-router-bootstrap'
 
 const ProfileScreen = ({ history }) => {

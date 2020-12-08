@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Button, Col, Form, FormGroup, FormLabel, FormCheck } from 'react-bootstrap'
 import FormContainer from '../components/FormContainer'
 import CheckoutSteps from '../components/CheckoutSteps'
-import savePaymentMethod from '../actions/savePaymentMethod'
+import savePaymentMethod from '../actions/order/savePaymentMethod'
 
 // this component is initialized for dealing with more than one payment method, you can simply uncomment the second payment method
 // in the return of the component to add this method to the list of payment methods, and everything will works fine.

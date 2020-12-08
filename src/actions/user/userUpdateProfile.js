@@ -1,11 +1,11 @@
-import * as types from '../constants/actionTypes'
-import * as api from '../api'
+import * as types from '../../constants/actionTypes'
+import * as api from '../../api'
 
-// action creator to get order details
-const getOrderDetails = (id) => async (dispatch, getState) => {
+// action creator for update user data
+const userUpdateProfile = (user) => async (dispatch, getState) => {
     try {
         // frist dispatch this to set loading to true
-        dispatch({ type: types.ORDER_DETAILS_REQUEST })
+        dispatch({ type: types.USER_UPDATE_PROFILE_REQUEST })
 
         // get the token from logged in user
         let { userLogin: { userInfo } } = getState()
@@ -13,22 +13,23 @@ const getOrderDetails = (id) => async (dispatch, getState) => {
         // this config which is have a token.
         const configWithToken = {
             headers: {
-                Authorization: `bearer ${userInfo.token}`
+                Authorization: `bearer ${userInfo.token}`,
+                'Content-Type': 'application/json'
             }
         }
 
-        // then send request to get an order
-        const { data } = await api.getOrderById(id, configWithToken)
+        // then send request to update user data
+        const { data } = await api.updateUserDetails(user, configWithToken)
 
         // then dispatch this to save the data to the state
         dispatch({
-            type: types.ORDER_DETAILS_SUCCESS,
+            type: types.USER_UPDATE_PROFILE_SUCCESS,
             payload: data
         })
     } catch (error) {
         // if there is an error dispatch this to add the error to the state
         dispatch({
-            type: types.ORDER_DETAILS_FAILURE,
+            type: types.USER_UPDATE_PROFILE_FAILURE,
             payload: error.response && error.response.data.error
             ? error.response.data.error
             : error.message
@@ -36,4 +37,4 @@ const getOrderDetails = (id) => async (dispatch, getState) => {
     }
 }
 
-export default getOrderDetails
+export default userUpdateProfile

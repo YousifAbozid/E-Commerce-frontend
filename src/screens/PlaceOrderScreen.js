@@ -4,7 +4,7 @@ import { Button, Row, Col, ListGroup, Image, Card, ListGroupItem } from 'react-b
 import Message from '../components/Message'
 import CheckoutSteps from '../components/CheckoutSteps'
 import { Link } from 'react-router-dom'
-import createOrder from '../actions/createOrder'
+import createOrder from '../actions/order/createOrder'
 
 const PlaceOrderScreen = ({ history }) => {
     const dispatch = useDispatch()

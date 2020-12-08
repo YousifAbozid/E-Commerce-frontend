@@ -1,5 +1,5 @@
-import * as types from '../constants/actionTypes'
-import * as api from '../api'
+import * as types from '../../constants/actionTypes'
+import * as api from '../../api'
 
 // action creator for product details
 const productDetails = (id) => async (dispatch) => {

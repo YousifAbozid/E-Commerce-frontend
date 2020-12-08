@@ -5,7 +5,7 @@ import { Col, Row, Button, Form, FormGroup, FormControl, FormLabel } from 'react
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 import FormContainer from '../components/FormContainer'
-import { login } from '../actions/userLoginAndLogout'
+import { login } from '../actions/user/userLoginAndLogout'
 
 const LoginScreen = ({ location, history }) => {
     const dispatch = useDispatch()

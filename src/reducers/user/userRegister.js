@@ -1,4 +1,4 @@
-import * as types from '../constants/actionTypes'
+import * as types from '../../constants/actionTypes'
 
 const initialState = {
     loading: false,
@@ -6,19 +6,19 @@ const initialState = {
     error: []
 }
 
-const userLoginReducer = (state = initialState, action) => {
+const userRegisterReducer = (state = initialState, action) => {
     switch (action.type) {
-        case types.USER_lOGIN_REQUEST:
+        case types.USER_REGISTER_REQUEST:
             return { ...state, loading: true }
-        case types.USER_LOGIN_SUCCESS:
+        case types.USER_REGISTER_SUCCESS:
             return { ...state, loading: false, userInfo: action.payload, error: [] }
-        case types.USER_LOGIN_FAILURE:
+        case types.USER_REGISTER_FAILURE:
             return { ...state, loading: false, error: action.payload }
-        case types.USER_LOGOUT:
-            return { loading: false, userInfo: null, error: [] }
+        case types.USER_REGISTER_RESET:
+            return state
         default:
             return state
     }
 }
 
-export default userLoginReducer
+export default userRegisterReducer

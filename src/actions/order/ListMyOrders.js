@@ -1,11 +1,11 @@
-import * as types from '../constants/actionTypes'
-import * as api from '../api'
+import * as types from '../../constants/actionTypes'
+import * as api from '../../api'
 
-// action creator for user details
-const getUserDetails = () => async (dispatch, getState) => {
+// action creator for list-my order
+const listMyOrders = () => async (dispatch, getState) => {
     try {
         // frist dispatch this to set loading to true
-        dispatch({ type: types.USER_DETAILS_REQUEST })
+        dispatch({ type: types.ORDER_LIST_MY_REQUEST })
 
         // get the token from logged in user
         let { userLogin: { userInfo } } = getState()
@@ -13,23 +13,22 @@ const getUserDetails = () => async (dispatch, getState) => {
         // this config which is have a token.
         const configWithToken = {
             headers: {
-                Authorization: `bearer ${userInfo.token}`,
-                'Content-Type': 'application/json'
+                Authorization: `bearer ${userInfo.token}`
             }
         }
 
-        // then send request to get user data
-        const { data } = await api.getUserDetails(configWithToken)
+        // then send request to get the orders list-my
+        const { data } = await api.getOrderListMy(configWithToken)
 
         // then dispatch this to save the data to the state
         dispatch({
-            type: types.USER_DETAILS_SUCCESS,
+            type: types.ORDER_LIST_MY_SUCCESS,
             payload: data
         })
     } catch (error) {
         // if there is an error dispatch this to add the error to the state
         dispatch({
-            type: types.USER_DETAILS_FAILURE,
+            type: types.ORDER_PAY_FAILURE,
             payload: error.response && error.response.data.error
             ? error.response.data.error
             : error.message
@@ -37,4 +36,4 @@ const getUserDetails = () => async (dispatch, getState) => {
     }
 }
 
-export default getUserDetails
+export default listMyOrders

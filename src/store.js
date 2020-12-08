@@ -1,17 +1,18 @@
 import { createStore, applyMiddleware, combineReducers } from "redux"
 import thunk from "redux-thunk"
 import { composeWithDevTools } from "redux-devtools-extension"
-import productListReducer from "./reducers/productList"
-import productDetailsReducer from "./reducers/productDetails"
-import cartReducer from "./reducers/cart"
-import userLoginReducer from "./reducers/userLogin"
-import userRegisterReducer from "./reducers/userRegister"
-import userDetailsReducer from "./reducers/userDetails"
-import userUpdateProfileReducer from "./reducers/userUpdateProfile"
-import orderCreateReducer from "./reducers/orderCreate"
-import orderDetailsReducer from "./reducers/orderDetails"
-import orderPayReducer from "./reducers/orderPay"
-import orderListMyReducer from "./reducers/orderListMy"
+import productListReducer from "./reducers/product/productList"
+import productDetailsReducer from "./reducers/product/productDetails"
+import cartReducer from "./reducers/cart/cart"
+import userLoginReducer from "./reducers/user/userLogin"
+import userRegisterReducer from "./reducers/user/userRegister"
+import userDetailsReducer from "./reducers/user/userDetails"
+import userUpdateProfileReducer from "./reducers/user/userUpdateProfile"
+import userListReducer from "./reducers/user/userList"
+import orderCreateReducer from "./reducers/order/orderCreate"
+import orderDetailsReducer from "./reducers/order/orderDetails"
+import orderPayReducer from "./reducers/order/orderPay"
+import orderListMyReducer from "./reducers/order/orderListMy"
 
 // create a root reducer
 const rootReducer = combineReducers({
@@ -22,10 +23,11 @@ const rootReducer = combineReducers({
     userRegister: userRegisterReducer,
     userDetails: userDetailsReducer,
     userUpdateProfile: userUpdateProfileReducer,
+    userList: userListReducer,
     orderCreate: orderCreateReducer,
     orderDetails: orderDetailsReducer,
     orderPay: orderPayReducer,
-    orderListMy: orderListMyReducer
+    orderListMy: orderListMyReducer,
 })
 
 // get the cart items from the localStorage

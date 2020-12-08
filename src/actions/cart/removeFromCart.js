@@ -1,4 +1,4 @@
-import * as types from '../constants/actionTypes'
+import * as types from '../../constants/actionTypes'
 
 const removeFromCart = (id) => async (dispatch, getState) => {
     // first dispatch this to remove an item from the state

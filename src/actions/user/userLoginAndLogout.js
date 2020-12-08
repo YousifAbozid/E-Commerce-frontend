@@ -1,5 +1,5 @@
-import * as types from '../constants/actionTypes'
-import * as api from '../api'
+import * as types from '../../constants/actionTypes'
+import * as api from '../../api'
 
 // action creator for user login
 export const login = (email, password) => async (dispatch) => {
@@ -41,4 +41,5 @@ export const logout = () => (dispatch) => {
     dispatch({ type: types.USER_UPDATE_PROFILE_RESET })
     dispatch({ type: types.USER_DETAILS_RESET })
     dispatch({ type: types.CART_RESET })
+    dispatch({ type: types.USER_LIST_RESET })
 }

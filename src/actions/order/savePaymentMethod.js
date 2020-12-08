@@ -1,4 +1,4 @@
-import * as types from '../constants/actionTypes'
+import * as types from '../../constants/actionTypes'
 
 // action creator for saving the payment method
 const savePaymentMethod = (data) => async (dispatch) => {

@@ -6,8 +6,8 @@ import { Row, Col, ListGroup, Image, Card, ListGroupItem } from 'react-bootstrap
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 import { Link } from 'react-router-dom'
-import getOrderDetails from '../actions/getOrderDetails'
-import orderPay from '../actions/orderPay'
+import getOrderDetails from '../actions/order/getOrderDetails'
+import orderPay from '../actions/order/orderPay'
 import * as types from '../constants/actionTypes'
 
 const OrderScreen = ({ match }) => {

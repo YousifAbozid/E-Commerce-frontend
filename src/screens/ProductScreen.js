@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Row, Col, Image, ListGroup, Card, Button, ListGroupItem, Form } from 'react-bootstrap'
-import productDetails from '../actions/productDetails' // this is action creator
+import productDetails from '../actions/product/productDetails' // this is action creator
 import Rating from '../components/Rating'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
