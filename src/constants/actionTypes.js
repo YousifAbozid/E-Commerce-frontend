@@ -50,6 +50,12 @@ export const USER_DELETE_REQUEST = "USER_DELETE_REQUEST"
 export const USER_DELETE_SUCCESS = "USER_DELETE_SUCCESS"
 export const USER_DELETE_FAILURE = "USER_DELETE_FAILURE"
 
+// types for update user details from admin panel
+export const USER_UPDATE_REQUEST = "USER_UPDATE_REQUEST"
+export const USER_UPDATE_SUCCESS = "USER_UPDATE_SUCCESS"
+export const USER_UPDATE_FAILURE = "USER_UPDATE_FAILURE"
+export const USER_UPDATE_RESET = "USER_UPDATE_RESET"
+
 // types for creating an order
 export const ORDER_CREATE_REQUEST = "ORDER_CREATE_REQUEST"
 export const ORDER_CREATE_SUCCESS = "ORDER_CREATE_SUCCESS"

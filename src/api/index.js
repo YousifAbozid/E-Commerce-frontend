@@ -23,6 +23,7 @@ export const userRegister = (name, email, password) => axios.post(CRD, { name, e
 export const getUserDetails = (configWithToken) => axios.get(urlForUserDetails, configWithToken, config)
 export const getUserDetailsById = (id, configWithToken) => axios.get(`${CRD}/${id}`, configWithToken, config)
 export const updateUserDetails = (user, configWithToken) => axios.put(urlForUserDetails, user, configWithToken, config)
+export const updateUserDetailsAsAdmin = (id, user, configWithToken) => axios.put(`${CRD}/${id}`, user, configWithToken, config)
 export const getUsersList = (configWithToken) => axios.get(CRD, configWithToken)
 export const deleteUser = (id, configWithToken) => axios.delete(`${CRD}/${id}`, configWithToken)
 
