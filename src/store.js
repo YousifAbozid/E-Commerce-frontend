@@ -13,6 +13,7 @@ import orderCreateReducer from "./reducers/order/orderCreate"
 import orderDetailsReducer from "./reducers/order/orderDetails"
 import orderPayReducer from "./reducers/order/orderPay"
 import orderListMyReducer from "./reducers/order/orderListMy"
+import userDeleteReducer from "./reducers/user/userDelete"
 
 // create a root reducer
 const rootReducer = combineReducers({
@@ -24,6 +25,7 @@ const rootReducer = combineReducers({
     userDetails: userDetailsReducer,
     userUpdateProfile: userUpdateProfileReducer,
     userList: userListReducer,
+    userDelete: userDeleteReducer,
     orderCreate: orderCreateReducer,
     orderDetails: orderDetailsReducer,
     orderPay: orderPayReducer,

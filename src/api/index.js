@@ -8,8 +8,7 @@ export const getProduct = (id) => axios.get(`${urlForProducts}/${id}`)
 
 // all requests that related to the user
 const urlForLogin = 'http://localhost:5000/api/users/login'
-const urlForRegister = 'http://localhost:5000/api/users'
-const urlForAllUsers = 'http://localhost:5000/api/users'
+const CRD = 'http://localhost:5000/api/users' // CRUD operations means: Create, Read, Update and Delete.
 const urlForUserDetails = 'http://localhost:5000/api/users/profile'
 
 // this config have no token.
@@ -20,10 +19,11 @@ const config = {
 }
 
 export const userLogin = (email, password) => axios.post(urlForLogin, { email, password }, config)
-export const userRegister = (name, email, password) => axios.post(urlForRegister, { name, email, password }, config)
+export const userRegister = (name, email, password) => axios.post(CRD, { name, email, password }, config)
 export const getUserDetails = (configWithToken) => axios.get(urlForUserDetails, configWithToken, config)
 export const updateUserDetails = (user, configWithToken) => axios.put(urlForUserDetails, user, configWithToken, config)
-export const getUsersList = (configWithToken) => axios.get(urlForAllUsers, configWithToken)
+export const getUsersList = (configWithToken) => axios.get(CRD, configWithToken)
+export const deleteUser = (id, configWithToken) => axios.delete(`${CRD}/${id}`, configWithToken)
 
 // all requests that related to the order
 const urlForOrder = 'http://localhost:5000/api/orders'
