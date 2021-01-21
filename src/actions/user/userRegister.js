@@ -1,5 +1,5 @@
-import * as types from '../../constants/actionTypes'
-import * as api from '../../api'
+import * as types from "../../constants/actionTypes"
+import * as api from "../../api"
 
 // action creator for user register
 const register = (name, email, password) => async (dispatch) => {
@@ -13,24 +13,25 @@ const register = (name, email, password) => async (dispatch) => {
         // then dispatch this to save the data to the state
         dispatch({
             type: types.USER_REGISTER_SUCCESS,
-            payload: data
+            payload: data,
         })
 
         // also save the data to the state as logged in user
         dispatch({
             type: types.USER_LOGIN_SUCCESS,
-            payload: data
+            payload: data,
         })
 
         // then save the user data in the localStorage
-        localStorage.setItem('userInfo', JSON.stringify(data))
+        localStorage.setItem("userInfo", JSON.stringify(data))
     } catch (error) {
         // if there is an error dispatch this to add the error to the state
         dispatch({
             type: types.USER_REGISTER_FAILURE,
-            payload: error.response && error.response.data.error
-            ? error.response.data.error
-            : error.message
+            payload:
+                error.response && error.response.data.error
+                    ? error.response.data.error
+                    : error.message,
         })
     }
 }

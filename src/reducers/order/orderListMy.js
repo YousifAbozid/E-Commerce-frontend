@@ -3,7 +3,7 @@ import * as types from "../../constants/actionTypes"
 const initialState = {
     loading: true,
     orders: [],
-    error: []
+    error: [],
 }
 
 const orderListMyReducer = (state = initialState, action) => {

@@ -1,5 +1,5 @@
-import * as types from '../../constants/actionTypes'
-import * as api from '../../api'
+import * as types from "../../constants/actionTypes"
+import * as api from "../../api"
 
 // action creator for cart
 const addToCart = (id, qty) => async (dispatch, getState) => {
@@ -15,12 +15,12 @@ const addToCart = (id, qty) => async (dispatch, getState) => {
             image: data.image,
             price: data.price,
             countInStock: data.countInStock,
-            qty
-        }
+            qty,
+        },
     })
 
     // after dispatch save the cart items to the localStorage in the browser
-    localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems))
+    localStorage.setItem("cartItems", JSON.stringify(getState().cart.cartItems))
 }
 
 export default addToCart

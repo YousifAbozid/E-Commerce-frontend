@@ -1,5 +1,5 @@
-import * as types from '../../constants/actionTypes'
-import * as api from '../../api'
+import * as types from "../../constants/actionTypes"
+import * as api from "../../api"
 
 // action creator for product details
 const productDetails = (id) => async (dispatch) => {
@@ -13,14 +13,13 @@ const productDetails = (id) => async (dispatch) => {
         // then dispatch this to save the data to the state
         dispatch({
             type: types.PRODUCT_DETAILS_SUCCESS,
-            payload: data
+            payload: data,
         })
-
     } catch (error) {
         // if there is an error dispatch this to add the error to the state
         dispatch({
             type: types.PRODUCT_DETAILS_FAILURE,
-            payload: error.message
+            payload: error.message,
         })
     }
 }

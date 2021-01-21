@@ -1,9 +1,9 @@
-import * as types from '../../constants/actionTypes'
+import * as types from "../../constants/actionTypes"
 
 const initialState = {
     loading: false,
     userInfo: null,
-    error: []
+    error: [],
 }
 
 const userRegisterReducer = (state = initialState, action) => {
@@ -11,7 +11,12 @@ const userRegisterReducer = (state = initialState, action) => {
         case types.USER_REGISTER_REQUEST:
             return { ...state, loading: true }
         case types.USER_REGISTER_SUCCESS:
-            return { ...state, loading: false, userInfo: action.payload, error: [] }
+            return {
+                ...state,
+                loading: false,
+                userInfo: action.payload,
+                error: [],
+            }
         case types.USER_REGISTER_FAILURE:
             return { ...state, loading: false, error: action.payload }
         case types.USER_REGISTER_RESET:

@@ -1,9 +1,9 @@
-import * as types from '../../constants/actionTypes'
+import * as types from "../../constants/actionTypes"
 
 const initialState = {
     loading: false,
     user: {},
-    error: []
+    error: [],
 }
 
 const userDetailsReducer = (state = initialState, action) => {

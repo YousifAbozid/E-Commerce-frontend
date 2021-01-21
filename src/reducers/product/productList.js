@@ -1,9 +1,9 @@
-import * as types from '../../constants/actionTypes'
+import * as types from "../../constants/actionTypes"
 
 const initialState = {
     products: [],
     loading: false,
-    error: []
+    error: [],
 }
 
 const productListReducer = (state = initialState, action) => {

@@ -1,9 +1,9 @@
-import * as types from '../../constants/actionTypes'
+import * as types from "../../constants/actionTypes"
 
 const initialState = {
     loading: false,
     users: [],
-    error: []
+    error: [],
 }
 
 const userListReducer = (state = initialState, action) => {
@@ -11,7 +11,12 @@ const userListReducer = (state = initialState, action) => {
         case types.USER_LIST_REQUEST:
             return { ...state, loading: true }
         case types.USER_LIST_SUCCESS:
-            return { ...state, loading: false, users: action.payload, error: [] }
+            return {
+                ...state,
+                loading: false,
+                users: action.payload,
+                error: [],
+            }
         case types.USER_LIST_FAILURE:
             return { ...state, loading: false, error: action.payload }
         case types.USER_LIST_RESET:

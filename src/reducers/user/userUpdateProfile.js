@@ -1,10 +1,10 @@
-import * as types from '../../constants/actionTypes'
+import * as types from "../../constants/actionTypes"
 
 const initialState = {
     loading: false,
     success: false,
     userInfo: {},
-    error: []
+    error: [],
 }
 
 const userUpdateProfileReducer = (state = initialState, action) => {
@@ -12,7 +12,13 @@ const userUpdateProfileReducer = (state = initialState, action) => {
         case types.USER_UPDATE_PROFILE_REQUEST:
             return { ...state, loading: true }
         case types.USER_UPDATE_PROFILE_SUCCESS:
-            return { ...state, success: true, loading: false, userInfo: action.payload, error: [] }
+            return {
+                ...state,
+                success: true,
+                loading: false,
+                userInfo: action.payload,
+                error: [],
+            }
         case types.USER_UPDATE_PROFILE_FAILURE:
             return { ...state, loading: false, error: action.payload }
         case types.USER_UPDATE_PROFILE_RESET:

@@ -1,9 +1,9 @@
-import * as types from '../../constants/actionTypes'
+import * as types from "../../constants/actionTypes"
 
 const initialState = {
     loading: false,
     success: false,
-    error: []
+    error: [],
 }
 
 const userDeleteReducer = (state = initialState, action) => {

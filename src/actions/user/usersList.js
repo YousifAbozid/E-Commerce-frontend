@@ -1,5 +1,5 @@
-import * as types from '../../constants/actionTypes'
-import * as api from '../../api'
+import * as types from "../../constants/actionTypes"
+import * as api from "../../api"
 
 // action creator for get all users data
 const usersList = () => async (dispatch, getState) => {
@@ -8,13 +8,15 @@ const usersList = () => async (dispatch, getState) => {
         dispatch({ type: types.USER_LIST_REQUEST })
 
         // get the token from logged in user
-        let { userLogin: { userInfo } } = getState()
+        let {
+            userLogin: { userInfo },
+        } = getState()
 
         // this config which is have a token.
         const configWithToken = {
             headers: {
-                Authorization: `bearer ${userInfo.token}`
-            }
+                Authorization: `bearer ${userInfo.token}`,
+            },
         }
 
         // then send request to get users list
@@ -23,15 +25,16 @@ const usersList = () => async (dispatch, getState) => {
         // then dispatch this to save the data to the state
         dispatch({
             type: types.USER_LIST_SUCCESS,
-            payload: data
+            payload: data,
         })
     } catch (error) {
         // if there is an error dispatch this to add the error to the state
         dispatch({
             type: types.USER_LIST_FAILURE,
-            payload: error.response && error.response.data.error
-            ? error.response.data.error
-            : error.message
+            payload:
+                error.response && error.response.data.error
+                    ? error.response.data.error
+                    : error.message,
         })
     }
 }

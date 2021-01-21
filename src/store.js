@@ -31,7 +31,7 @@ const rootReducer = combineReducers({
     orderCreate: orderCreateReducer,
     orderDetails: orderDetailsReducer,
     orderPay: orderPayReducer,
-    orderListMy: orderListMyReducer
+    orderListMy: orderListMyReducer,
 })
 
 // get the cart items from the localStorage
@@ -63,7 +63,7 @@ const initialState = {
     },
     userLogin: {
         userInfo: userInfoFromStorage,
-        error: []
+        error: [],
     },
 }
 
