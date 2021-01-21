@@ -5,6 +5,8 @@ const urlForProducts = "http://localhost:5000/api/products"
 
 export const getProducts = () => axios.get(urlForProducts)
 export const getProduct = (id) => axios.get(`${urlForProducts}/${id}`)
+export const deleteProduct = (id, configWithToken) =>
+    axios.delete(`${urlForProducts}/${id}`, configWithToken)
 
 // all requests that related to the user
 const urlForLogin = "http://localhost:5000/api/users/login"
